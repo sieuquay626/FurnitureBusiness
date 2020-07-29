@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=vietnamese');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  font-size: 16px;
+  background-color: #f0f2f5;
+}
+.ant-notification-notice-icon {
+  color: white;
+}
+
+.ant-notification-notice-message {
+  color: white !important;
+}
+
+.ant-notification-close-icon {
+  color: #fff !important;
+}
+
+.ant-notification-close-icon:hover {
+  font-size: 20px !important;
+}
+
+#root {
+  position: relative;
+}
+
+// .App {
+//   text-align: center;
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }

@@ -1,0 +1,55 @@
+.modal-popup {
+  position: fixed;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 30px;
+  height: auto;
+  background-color: white;
+  border-radius: 20px;
+  z-index: 3;
+  display: none;
+  box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
+  &.show {
+    display: flex;
+    flex-direction: column;
+  }
+  .body-form {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    .gr_btn_submit {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 20px;
+      margin-top: 10px;
+    }
+  }
+  .header-popup-1 {
+    height: 80px;
+    width: 100%;
+    margin-bottom: 25px;
+    .header-popup-2 {
+      font-family: Roboto;
+      font-size: 20px;
+      margin-bottom: 25px;
+      font-weight: 500;
+      height: 100%;
+      background-color: #7367f0;
+      width: 100%;
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .popup-opacity {
+    position: absolute;
+    background-color: black;
+    z-index: 2;
+  }
+}

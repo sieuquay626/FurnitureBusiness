@@ -1,0 +1,114 @@
+.dashboardWrapper {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../assets/images/vuexy-login-bg.jpg);
+}
+
+.dashborad {
+  height: 100%;
+  padding: 20px 40px;
+  background-color: #f8f8f8;
+}
+
+.content-dashboard {
+  padding-top: 5rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-1 {
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+
+.col-11 {
+  flex: 0 0 85%;
+  max-width: 85%;
+}
+
+// .dashboard .content-dashboard {
+//   // width: 204px;
+//   // margin-right: 15px;
+// }
+
+// .dashborad.menu-dashboard {
+//   // width: 200px;
+//   // margin-right: 15px;
+// }
+
+.menu-dashborad li {
+  height: 40px;
+  // background-color: #ccc;
+  // border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  color: #222530;
+}
+
+.menu-dashborad li.active {
+  background-color: #7367f0;
+  border-radius: 18px;
+  color: #ffffff;
+}
+
+.menu-dashborad li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-dashborad li a p {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  // color: #222530;
+}
+
+.menu-dashborad li.active a p {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.menu-dashborad li a span svg {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  color: #222530;
+}
+
+.menu-dashborad li.active a span svg {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.menu-dashborad li a svg {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  color: #222530;
+}
+
+.menu-dashborad li.active a svg {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.content-right.wrapper-setting {
+  background-color: ghostwhite;
+  padding: 15px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+}

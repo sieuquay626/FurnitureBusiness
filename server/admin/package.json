@@ -1,0 +1,61 @@
+{
+  "name": "admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "antd": "^4.3.5",
+    "axios": "^0.19.2",
+    "filepond": "^4.19.2",
+    "filepond-plugin-image-exif-orientation": "^1.0.9",
+    "filepond-plugin-image-preview": "^4.6.4",
+    "filepond-plugin-image-resize": "^2.0.7",
+    "formik": "^2.1.4",
+    "history": "^5.0.0",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.13.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-feather": "^2.0.8",
+    "react-filepond": "^7.0.1",
+    "react-icons": "^3.10.0",
+    "react-motion": "^0.5.2",
+    "react-number-format": "^4.4.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-script": "^2.0.5",
+    "react-scripts": "^3.4.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.1.1",
+    "styled-theme": "^0.3.3",
+    "yup": "^0.29.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

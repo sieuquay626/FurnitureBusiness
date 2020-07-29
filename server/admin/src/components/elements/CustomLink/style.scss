@@ -1,0 +1,52 @@
+.custom-menu {
+  width: 120px;
+  padding: 12px 20px;
+  padding-top: 1.1rem;
+  padding-bottom: 0.965rem;
+  position: relative;
+}
+
+.custom-menu a {
+  position: relative;
+  padding-left: 15px;
+  color: #222530;
+}
+
+.custom-menu a svg {
+  position: absolute;
+  padding-left: 15px;
+  top: 3px;
+  left: -8px;
+}
+
+.custom-menu a img {
+  display: none;
+  color: #ffffff !important;
+}
+
+.logo-left,
+svg {
+  // color: #ffffff !important;
+  margin-right: 8px;
+  width: 18px;
+  margin-top: -6px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.logo-top {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-right: 8px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+@media (max-width: 765px) {
+  .step-change-reservation a {
+    font-size: 0.6rem;
+  }
+}

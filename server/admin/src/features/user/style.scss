@@ -1,0 +1,94 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  height: 45px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top.action-search {
+  position: relative;
+  height: 100%;
+}
+
+.action-search form {
+  height: 100%;
+}
+
+.top .action-search img {
+  position: absolute;
+  top: 30px;
+  right: 202px;
+  height: 20px;
+}
+
+.top .action-search input {
+  height: 100%;
+  padding-left: 30px;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+
+.actions {
+  display: inherit;
+  height: 100%;
+}
+.actions div {
+  margin-right: 15px;
+  height: 100%;
+}
+
+.actions div button {
+  height: 100%;
+  position: relative;
+  width: 125px;
+}
+
+.actions div button svg {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+}
+
+.actions div button span {
+  padding-left: 12px;
+}
+
+.title-table {
+  margin-top: 1rem;
+}
+
+.title-table .col-item {
+  font-weight: 5 00;
+  font-size: 18px;
+}
+.col-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border-bottom: 1px solid #0bcbff;
+  font-size: 15px;
+}
+
+.col-item a svg {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.itemlist {
+  height: 65px;
+  margin-bottom: 20px;
+  background-color: white !important;
+  border-radius: 10px !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.itemlist:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
