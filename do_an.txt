@@ -1,0 +1,39 @@
+﻿-Đồ án tốt nghiệp
+(kinh doanh đồ  nội thất)
+
+-Tính năng
+[]Hệ thống
+[]Đối với khách:
+	+[]Xây dựng recomment system
+	+[]Xem tra cứu thông tin sản phẩm
+	+[]Đăng ký thành viên
+	+[]Đăng nhập
+	+[]Reset password bằng cách gửi verify code qua email
+	+[]Thêm sản phẩm vào giỏ hàng
+	+[]Có box chat để khách giải đáp thắc mắc khách hàng
+[]Đối với người đăng nhập:
+	+[]Có tất cả tính năng của khách
+	+[]Profile
+	+[]Hỗ trợ thanh toán Online
+[]Đối với người đăng nhập có quyền Admin(trang web nội bộ)
+	+[]Quản lý nhân viên,chi nhánh,kho,sản phẩm,nhà sản xuất,người dùng
+	+[]Xuất báo cáo
+
+-Client :VueJs + typescript
+-Server :Express + typescript
+-CSDL :MongoDB
+-Module :
++concurrently:Gọi nhiều câu lệnh cùng 1 lúc
+	
+
+
+-DB
++Product
++Cart
++User
++Type1
++Type2
++Brand
++Manufacture
+
+

@@ -1,0 +1,53 @@
+{
+  "name": "furniture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "admin": "npm run start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run client\"  \"npm run admin\"",
+    "superAdmin": "node ./task/createSuperAdminUser.js",
+    "suggest": "nodemon  ./services/index.js",
+    "debug": "ndb app.js",
+    "lint": "eslint chatbox/"
+  },
+  "author": "ntp",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.0",
+    "compute-cosine-similarity": "^1.0.0",
+    "cors": "^2.8.5",
+    "csv-parser": "^2.3.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "gravatar": "^1.8.0",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mocha": "^8.0.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.21",
+    "multer": "^1.4.2",
+    "natural": "^2.1.5",
+    "nodemailer": "^6.4.10",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "puppeteer": "^5.2.1",
+    "redux-saga": "^1.1.3",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.2.0",
+    "validator": "^13.1.1",
+    "volleyball": "^1.5.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "fast-csv": "^4.3.1",
+    "ndb": "^1.1.5",
+    "nodemon": "^2.0.4"
+  }
+}
