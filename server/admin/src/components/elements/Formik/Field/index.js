@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import './styles.scss';
-import PropTypes from 'prop-types';
-import NumberFormat from 'react-number-format';
+import React, { Component } from "react";
+import "./styles.css";
+import PropTypes from "prop-types";
+// import { formatCurrency } from '../../../commons/utils';
+import NumberFormat from "react-number-format";
 
 class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      valueInput: '',
+      valueInput: "",
       thousandSeparator: false,
     };
   }
@@ -16,7 +17,7 @@ class index extends Component {
     if (number == null) {
       return 0;
     }
-    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
   }
 
   render() {
@@ -51,7 +52,7 @@ class index extends Component {
     return (
       <React.Fragment>
         {label ? <div className={classLabel}>{label}</div> : null}
-        <div className='input'>
+        <div className="input">
           {isFormat === true ? (
             <NumberFormat
               className={className}
@@ -76,28 +77,28 @@ class index extends Component {
               {...this.props}
             />
           ) : (
-            <input
-              name={name}
-              maxLength={maxLength}
-              type={type}
-              style={{
-                paddingLeft: leftImage ? '45px' : '12px',
-              }}
-              placeholder={placeholder}
-              value={value}
-              onChange={onChange}
-              className={className}
-              disabled={disabled}
-              multiple={multiple}
+              <input
+                name={name}
+                maxLength={maxLength}
+                type={type}
+                style={{
+                  paddingLeft: leftImage ? "45px" : "12px",
+                }}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                className={className}
+                disabled={disabled}
+                multiple={multiple}
               // numberOfLine={7}
-            />
-          )}
+              />
+            )}
 
           {touched[name] && errors[name] && (
-            <div className='errorInput'>{errors[name]}</div>
+            <div className="errorInput">{errors[name]}</div>
           )}
           {leftImage ? (
-            <img className='img-email' src={leftImage} alt={name} />
+            <img className="img-email" src={leftImage} alt={name} />
           ) : null}
         </div>
       </React.Fragment>
@@ -105,14 +106,14 @@ class index extends Component {
   }
 }
 index.defaultProps = {
-  type: 'text',
-  className: 'field',
-  classLabel: 'classLabel',
+  type: "text",
+  className: "field",
+  classLabel: "classLabel",
   isFormat: false,
-  defaultValue: '',
+  defaultValue: "",
   isNumericString: false,
   fixedDecimalScale: false,
-  maxLength: 30,
+  maxLength: 30
 };
 
 index.propTypes = {

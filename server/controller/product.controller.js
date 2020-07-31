@@ -44,9 +44,6 @@ module.exports = {
   addProduct: async (req, res) => {
     await Product.find({ title: req.body.title })
       .then(async (product) => {
-        console.log(Array.isArray(product));
-        console.log(product.length);
-
         if (Array.isArray(product) && product.length) {
           res.status(400).json({ msg: 'Product already exists' });
         } else {

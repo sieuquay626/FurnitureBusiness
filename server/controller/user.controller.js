@@ -4,6 +4,7 @@ const validateRegister = require('../config/validator/register');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const { generateToken } = require('../config/createToken');
 const nodemailer = require('nodemailer');
@@ -61,11 +62,16 @@ module.exports = {
             return res.status(400).json({ msg: 'Email already exists' });
           }
         } else {
-          const avatar = gravatar.url(req.body.email, {
-            s: '200',
-            r: 'pg',
-            d: 'mm',
-          });
+          console.log(req.file);
+
+          const avatar =
+            req.file != null
+              ? req.file.path
+              : gravatar.url(req.body.email, {
+                  s: '200',
+                  r: 'pg',
+                  d: 'mm',
+                });
 
           const newUser = new User({
             ...req.body,

@@ -4,11 +4,12 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const controller = require('../../controller/user.controller');
 const auth = require('../../middleware/authRole');
+const config = require('../../config/uploadFile');
 
 router.get('/', controller.listAccount);
 router.get('/pgs', controller.listAccountPage);
 router.get('/', controller.listAccount);
-router.post('/', controller.register);
+router.post('/', config.upload.single('avartar'), controller.register);
 router.get(
   '/dashboard',
   passport.authenticate('jwt', { session: false }),

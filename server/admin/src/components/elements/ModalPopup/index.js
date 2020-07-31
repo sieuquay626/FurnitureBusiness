@@ -5,6 +5,7 @@ import ModalCreateUser from '../../../features/user/ModalCreateUser';
 import ModalEditUser from '../../../features/user/ModalEditUser';
 import { get } from 'lodash';
 import { handleClosePopup } from '../../../redux/actions/user';
+import * as Icon from 'react-feather';
 
 const ModalPopup = () => {
   const state = useSelector((state) => state.popup);
@@ -25,34 +26,9 @@ const ModalPopup = () => {
 
   return (
     <div className={`modal-popup ${state.check ? 'show' : ''}`}>
-      <div className='header-popup-1'>
-        <div className='header-popup-2'>{title}</div>
-      </div>
-
-      <form className='body-form'>
-        {setBodyModal()}
-        <ul className='gr_btn_submit'>
-          <li>
-            <button type='submit' className='btn btn-default'>
-              save change
-            </button>
-          </li>
-          <li>
-            <button type='button' className='btn btn-link'>
-              Reset
-            </button>
-          </li>
-          <li>
-            <button
-              type='button'
-              className='btn btn-default'
-              onClick={() => dispatch(handleClosePopup())}
-            >
-              Close
-            </button>
-          </li>
-        </ul>
-      </form>
+      <div className='header-popup'>{title}</div>
+      <Icon.X onClick={() => dispatch(handleClosePopup())} />
+      <form className='body-form'>{setBodyModal()}</form>
     </div>
   );
 };

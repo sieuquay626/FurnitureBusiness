@@ -5,12 +5,12 @@ const listUser_api = (data) => {
   return axiosInstance.get(`/auth/pgs/?${convertQueyString(data)}`);
 };
 
-const deleteUser_api = (id) => {
-  return axiosInstance.delete(`/auth/${id}`);
+const createUser_api = (data) => {
+  return axiosInstance.post(`/auth/?${convertQueyString(data)}`);
 };
 
-const createUser_api = (data) => {
-  return axiosInstance.post('/auth', data);
+const deleteUser_api = (id) => {
+  return axiosInstance.delete(`/auth/${id}`);
 };
 
 const detailUser_api = (id) => {

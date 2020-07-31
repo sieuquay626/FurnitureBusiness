@@ -25,7 +25,7 @@ const io = socketio(server);
 app.set('port', process.env.PORT || 3000);
 
 //middleware
-app.use(express.static('public'));
+app.use('/', express.static('public/images'));
 app.use(passport.initialize());
 require('./config/passport')(passport);
 app.use(bodyParser.urlencoded({ extended: false }));

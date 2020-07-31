@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './styles.scss';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import "./styles.css";
+import PropTypes from "prop-types";
 
 class TextArea extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      valueInput: '',
+      valueInput: "",
     };
   }
 
@@ -29,7 +29,7 @@ class TextArea extends Component {
     return (
       <React.Fragment>
         {label ? <div className={classLabel}>{label}</div> : null}
-        <div className='input'>
+        <div className="input">
           <textarea
             name={name}
             type={type}
@@ -39,14 +39,14 @@ class TextArea extends Component {
             onChange={onChange}
             className={className}
             disabled={disabled}
-            component='textarea'
+            component="textarea"
           />
 
           {touched[name] && errors[name] && (
-            <div className='errorInput'>{errors[name]}</div>
+            <div className="errorInput">{errors[name]}</div>
           )}
           {rightImage ? (
-            <img className='img-email' src={rightImage} alt={name} />
+            <img className="img-email" src={rightImage} alt={name} />
           ) : null}
         </div>
       </React.Fragment>
@@ -54,10 +54,10 @@ class TextArea extends Component {
   }
 }
 TextArea.defaultProps = {
-  type: 'text',
-  className: 'field',
-  classLabel: 'classLabel',
-  defaultValue: '',
+  type: "text",
+  className: "field",
+  classLabel: "classLabel",
+  defaultValue: "",
 };
 
 TextArea.propTypes = {
