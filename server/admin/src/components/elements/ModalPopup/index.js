@@ -16,6 +16,7 @@ const ModalPopup = () => {
       case 'create_user':
         return <ModalCreateUser />;
       case 'edit_user':
+        console.log('vao');
         return <ModalEditUser />;
       default:
         break;
@@ -27,7 +28,10 @@ const ModalPopup = () => {
   return (
     <div className={`modal-popup ${state.check ? 'show' : ''}`}>
       <div className='header-popup'>{title}</div>
-      <Icon.X onClick={() => dispatch(handleClosePopup())} />
+      <Icon.X
+        className='btn-close'
+        onClick={() => dispatch(handleClosePopup())}
+      />
       <form className='body-form'>{setBodyModal()}</form>
     </div>
   );

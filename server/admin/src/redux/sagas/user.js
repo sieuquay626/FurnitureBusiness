@@ -14,6 +14,7 @@ function* handleUserList(data) {
 }
 
 function* handleUserCreate({ payload }) {
+  console.log(payload);
   const { data, callback } = payload;
   try {
     const result = yield call(createUser_api, data);

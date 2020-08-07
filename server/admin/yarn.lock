@@ -4831,6 +4831,16 @@ file-uri-to-path@1.0.0:
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
   integrity sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==
 
+filepond-plugin-image-crop@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/filepond-plugin-image-crop/-/filepond-plugin-image-crop-2.0.4.tgz#53cd0a92b0b357d02789d0f6dcc980f067b08848"
+  integrity sha512-Y5dv2rFd/UBwA3+sdJOFjuCv1t5ekLOJr2C3hsNjq58lw7kM9/twaT+qjyZW0LFj1Yq4DccynuqS3BG50oHBoQ==
+
+filepond-plugin-image-edit@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/filepond-plugin-image-edit/-/filepond-plugin-image-edit-1.6.1.tgz#05e0b713f0073b5d486e1aa8a33cd1b7289afd43"
+  integrity sha512-JbvaPJUD3AHT5TehN/z7NGXPHw4PJfniij1ak68jtBOH0yk2TWzFfw90FRm4kJBS4pYdV4KbYzNkBkrpE7BYYA==
+
 filepond-plugin-image-exif-orientation@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/filepond-plugin-image-exif-orientation/-/filepond-plugin-image-exif-orientation-1.0.9.tgz#bf1220d99c117a69859f3297d0618e7469705019"

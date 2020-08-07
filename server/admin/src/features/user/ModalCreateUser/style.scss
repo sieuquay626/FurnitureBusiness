@@ -63,7 +63,7 @@
       visibility: hidden;
       width: 100%;
       top: 35px;
-      z-index: 3;
+      z-index: 4;
       position: absolute;
       right: 0;
       border-radius: 5px;
@@ -87,7 +87,7 @@
         }
       }
       .item-dropdown {
-        z-index: 3;
+        z-index: 5;
         padding: 10px;
         font-weight: 600;
         width: 100%;
@@ -117,6 +117,23 @@
 
 .upload-file {
   height: auto;
+}
+
+.filepond--root {
+  height: 200px;
+  width: 300px;
+  margin: 0 auto;
+}
+.filepond--drop-label {
+  color: #4c4e53;
+}
+
+.filepond--label-action {
+  text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+  background-color: #edf0f4;
 }
 
 // .item-dropdown:first-child:hover,

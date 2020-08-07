@@ -5,6 +5,8 @@ import 'filepond/dist/filepond.min.css';
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginImageResize from 'filepond-plugin-image-resize';
+import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
+import FilePondPluginImageEdit from 'filepond-plugin-image-edit';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 import { UI } from '../../../components/elements';
 import { useDispatch } from 'react-redux';
@@ -14,7 +16,9 @@ import Notification from '../../../components/elements/Notification';
 registerPlugin(
   FilePondPluginImageExifOrientation,
   FilePondPluginImagePreview,
-  FilePondPluginImageResize
+  FilePondPluginImageResize,
+  FilePondPluginImageCrop,
+  FilePondPluginImageEdit
 );
 
 const ModalCreateUser = () => {
@@ -28,6 +32,7 @@ const ModalCreateUser = () => {
   };
   const dispatch = useDispatch();
   const [data, setData] = useState(initData);
+  const [image, setImage] = useState({});
   console.log(data);
   const [files, setFiles] = useState([]);
   console.log('files', files);
@@ -58,14 +63,17 @@ const ModalCreateUser = () => {
   };
 
   const fileOnChange = (event) => {
-    setData({ ...data, avartar: event.target.files[0] });
+    setImage({ avartar: event.target.files[0] });
   };
   const handleUploadFile = ({ target: { files } }) => {
     let avatar = new FormData();
-    avatar.append('avatar', data.avatar);
+    avatar.append('avatar', image);
+    setData(...data, avatar);
   };
 
   const handleSubmit = (values) => {
+    e.preventDefault();
+    const fd = new FormData();
     dispatch(
       handleUserCreate(values, ({ error, message }) => {
         if (error) {
@@ -125,16 +133,25 @@ const ModalCreateUser = () => {
         <div className='input-role-img'>
           <div className='upload-file'>
             <FilePond
-              files={data.avatar}
-              onupdatefiles={(fileItem) => {
-                setData({ ...data, avartar: fileItem });
-              }}
+              files={files}
+              onupdatefiles={setFiles}
               allowMultiple={false}
+              acceptedFileTypes={['image/*']}
+              // onupdatefiles={(event) => {
+              //   console.log(event.setMetadata);
+              //   // setData({ ...data, avatar: event.target.avartarfiles[0] });
+              // }}
+              imagePreviewHeight='170'
+              imageResizeTargetWidth='200'
+              imageResizeTargetHeight='200'
+              server='http://127.0.0.1:5000/api/v1/auth'
               acceptedFileTypes='image/jpeg,image/png'
-              name='files'
+              styleLoadIndicatorPosition='center bottom'
+              name='avartarfiles'
               labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
             />
           </div>
+
           <div className='role'>
             <div className='dropdown-role '>
               <p>{data.role ? data.role : `Role`}</p>
@@ -181,7 +198,25 @@ const ModalCreateUser = () => {
 
 export default ModalCreateUser;
 /*
+ <FilePond
+              files={data.avatar}
+              onupdatefiles={(fileItem) => {
+                setData({ ...data, avartar: fileItem });
+              }}
 
+
+              allowImageResize='true'
+
+              allowImagePreview='true'
+              allowImageCrop='true'
+              imageCropAspectRatio='1:1'
+              stylePanelLayout='compact circle'
+
+              styleProgressIndicatorPosition='right bottom'
+              styleButtonRemoveItemPosition='left bottom'
+              styleButtonProcessItemPosition='right bottom'
+
+            />
 
 
 

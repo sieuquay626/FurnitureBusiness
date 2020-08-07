@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.scss';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import './App.css';
 
+import Header from './components/layout/header';
+import Banner from './components/elements/Banner';
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1>Client</h1>
-      </header>
+      <Header />
+      <Banner />
     </div>
   );
 }
