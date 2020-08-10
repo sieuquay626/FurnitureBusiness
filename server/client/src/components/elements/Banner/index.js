@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import * as Icon from 'react-feather';
-import ItemBanner from '../ItemBanner';
 const Banner = (props) => {
-  const [state, setstate] = useState({
+  const [state, setState] = useState({
     banner: [
       {
         id: 1,
@@ -18,19 +17,71 @@ const Banner = (props) => {
       {
         id: 3,
         image:
-          'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/aerin-for-the-shade-store-pinch-pleat-drapery-1-1569877290.jpg?resize=480:*',
+          'https://d3tt7xf0u0byqe.cloudfront.net/media/catalog/product/cache/image/resized/960x1920/w3themes/banner7/20200803_Ginny_Macdonald_Desktop.jpg',
+      },
+      {
+        id: 4,
+        image:
+          'https://d3tt7xf0u0byqe.cloudfront.net/skin/frontend/lulu/lulu/images/sarah-sherman/SSS_fullwidth-img.jpg',
       },
     ],
     bannerSelected: 0,
   });
+
+  const handleClickChangeSlide = (index) => {
+    let temp = { ...state };
+    temp.bannerSelected = index;
+    setState(temp);
+  };
+
+  const handleLeftBanner = () => {
+    let temp = { ...state };
+    if (state.bannerSelected > 0) {
+      temp.bannerSelected -= 1;
+    }
+    setState(temp);
+  };
+
+  const handleRightBanner = () => {
+    let temp = { ...state };
+    if (state.bannerSelected < state.banner.length - 1) {
+      temp.bannerSelected += 1;
+    }
+    setState(temp);
+  };
+
+  // useEffect(() => {
+  //   const banner = setTimeout(() => {
+  //     let temp = { ...state };
+  //     if (temp.asc && temp.bannerSelected < temp.banner.length - 1) {
+  //       temp.bannerSelected += 1;
+  //     } else {
+  //       if (temp.bannerSelected == temp.banner.length - 1) {
+  //         temp.asc = false;
+  //       }
+  //     }
+
+  //     if (!temp.asc && temp.bannerSelected > 0) {
+  //       temp.bannerSelected -= 1;
+  //     } else {
+  //       if (temp.bannerSelected == 0) {
+  //         temp.asc = true;
+  //       }
+  //     }
+
+  //     setState(temp);
+  //   }, 3000);
+  //   return () => clearTimeout(banner);
+  // }, []);
+
   return (
     <div className='banner'>
       <div className='slider'>
-        {state.banner.map((item, index) => {
+        {state.banner.slice(0, 4).map((item, index) => {
           return (
             <div
-              className={`slide ${
-                state.bannerSelected === index ? 'selected' : ''
+              className={` slide  ${
+                !index ? `selected${state.bannerSelected + 1}` : ''
               }`}
               key={index}
             >
@@ -38,18 +89,36 @@ const Banner = (props) => {
             </div>
           );
         })}
-        <ItemBanner />
       </div>
 
-      <Icon.ChevronLeft className='btn-left' />
-      <Icon.ChevronRight className='btn-right' />
+      <Icon.ChevronLeft className='btn-left' onClick={handleLeftBanner} />
+      <Icon.ChevronRight className='btn-right' onClick={handleRightBanner} />
       <ul className='control-dots'>
-        <li className='banner-dot active'></li>
-        <li className='banner-dot'></li>
-        <li className='banner-dot'></li>
+        {state.banner.slice(0, 4).map((item, index) => {
+          return (
+            <li
+              className={`banner-dot d${index + 1} ${
+                state.bannerSelected == index ? `active` : ''
+              }`}
+              key={index}
+              onClick={() => handleClickChangeSlide(index)}
+            ></li>
+          );
+        })}
       </ul>
     </div>
   );
 };
 
 export default Banner;
+/*
+
+`slide ${!index ? 'default' : ''} ${
+                state.bannerSelected === index ? `selected${index + 1}` : ''
+              }`
+
+<li className='banner-dot d1 active'></li>
+        <li className='banner-dot d2'></li>
+        <li className='banner-dot d3'></li>
+        <li className='banner-dot d4'></li>
+*/

@@ -16,6 +16,7 @@ module.exports = {
     try {
       await Category.findById(req.params.id)
         .populate('products')
+        .populate('parent')
         .then((result) => {
           res.status(200).json(result);
         })
@@ -25,6 +26,29 @@ module.exports = {
     } catch (e) {
       res.status(400).json({ msg: e.message });
     }
+  },
+
+  getParentCategory: async (req, res) => {
+    console.log('ok');
+    await Category.find({ parent: { $exists: false } })
+      .then((result) => {
+        console.log(result);
+        res.status(200).json(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({ msg: 'Category Not Found' });
+      });
+  },
+
+  getSubCategory: async (req, res) => {
+    await Category.findOne({ parent: req.params.id })
+      .then((result) => {
+        res.status(200).json(result);
+      })
+      .catch((err) => {
+        res.status(400).json({ msg: 'Category Not Found' });
+      });
   },
 
   addCategory: async (req, res) => {

@@ -3,12 +3,12 @@
   z-index: 1;
   display: flex;
   width: 100%;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   height: auto;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
-  opacity: 0.7;
+
   .left-header {
     padding: 5px 0;
     & img {

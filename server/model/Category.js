@@ -12,6 +12,11 @@ const CategorySchema = Schema({
       ref: 'products',
     },
   ],
+  parent: {
+    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'categories',
+  },
 
   createAt: {
     type: Date,
