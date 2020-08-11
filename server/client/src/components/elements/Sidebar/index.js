@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './style.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleCategory } from '../../../redux/actions/category';
 const Sidebar = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     parentMenu: [
       { id: 1, title: 'Furniture' },
@@ -12,16 +15,7 @@ const Sidebar = () => {
     ],
   });
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/category/parent')
-      .then((response) => {
-        response.json().then(function (data) {
-          console.log(data);
-          setState({ parentMenu: data });
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(handleCategory());
   }, []);
 
   const SubMenuFurniture = () => {
