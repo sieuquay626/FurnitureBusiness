@@ -56,10 +56,10 @@ app.listen(app.get('port'), hostname, () => {
 
 // const connections = [];
 
-// io.on('connection', (socket) => {
-//   console.log('New user connected ' + socket.id);
-//   connections.push(socket);
-//   socket.on('disconnect', () => {
-//     console.log('Disconnected - ' + socket.id);
-//   });
-// });
+io.on('connection', (socket) => {
+  console.log('New user connected ' + socket.id);
+  // connections.push(socket);
+  // socket.on('disconnect', () => {
+  //   console.log('Disconnected - ' + socket.id);
+  // });
+});

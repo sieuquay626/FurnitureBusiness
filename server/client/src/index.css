@@ -1,28 +1,12 @@
-* {
+/* html {
+  font-size: 65.5%;
+  box-sizing: border-box;
+} */
+body,
+#root {
+  height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
-a {
-  list-style: none;
-  text-decoration: none;
-}
 
-a:hover {
-  text-decoration: none;
-}
 
-button {
-  border: 0px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
-}
-
-input,
-input:active,
-input:focus {
-  outline: 0;
-  outline-style: none;
-  outline-width: 0;
-}

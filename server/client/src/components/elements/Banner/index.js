@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './style.scss';
 import * as Icon from 'react-feather';
+import Carousel from 'react-bootstrap/Carousel';
 const Banner = (props) => {
   const [state, setState] = useState({
     banner: [
       {
         id: 1,
         image:
-          'https://cdn.shopify.com/s/files/1/0053/2792/files/eatingoutpalissade_1280x.jpg?v=1596441429',
+          'https://images.squarespace-cdn.com/content/v1/570be89f27d4bdad56921954/1548897735843-527QUFNER5UPPC1Y0S6D/ke17ZwdGBToddI8pDm48kCHChmuivJZ1Va5ov3ZJeg17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ouw-8l5B_J38LMU7OZFvYcSGirBhY_3j1yQtntvGS73bypqQ-qjSV5umPUlGbQFAw/LOMBARDY+HOME+AWAY+FROM+HOME.jpg',
       },
       {
         id: 2,
@@ -28,85 +29,29 @@ const Banner = (props) => {
     bannerSelected: 0,
   });
 
-  const handleClickChangeSlide = (index) => {
-    let temp = { ...state };
-    temp.bannerSelected = index;
-    setState(temp);
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
   };
-
-  const handleLeftBanner = () => {
-    let temp = { ...state };
-    if (state.bannerSelected > 0) {
-      temp.bannerSelected -= 1;
-    }
-    setState(temp);
-  };
-
-  const handleRightBanner = () => {
-    let temp = { ...state };
-    if (state.bannerSelected < state.banner.length - 1) {
-      temp.bannerSelected += 1;
-    }
-    setState(temp);
-  };
-
-  // useEffect(() => {
-  //   const banner = setTimeout(() => {
-  //     let temp = { ...state };
-  //     if (temp.asc && temp.bannerSelected < temp.banner.length - 1) {
-  //       temp.bannerSelected += 1;
-  //     } else {
-  //       if (temp.bannerSelected == temp.banner.length - 1) {
-  //         temp.asc = false;
-  //       }
-  //     }
-
-  //     if (!temp.asc && temp.bannerSelected > 0) {
-  //       temp.bannerSelected -= 1;
-  //     } else {
-  //       if (temp.bannerSelected == 0) {
-  //         temp.asc = true;
-  //       }
-  //     }
-
-  //     setState(temp);
-  //   }, 3000);
-  //   return () => clearTimeout(banner);
-  // }, []);
-
+  /*
+activeIndex={index} onSelect={handleSelect}
+*/
   return (
-    <div className='banner'>
-      <div className='slider'>
-        {state.banner.slice(0, 4).map((item, index) => {
-          return (
-            <div
-              className={` slide  ${
-                !index ? `selected${state.bannerSelected + 1}` : ''
-              }`}
-              key={index}
-            >
-              <img className='banner-img' src={item.image} alt='No banner' />
-            </div>
-          );
-        })}
-      </div>
-
-      <Icon.ChevronLeft className='btn-left' onClick={handleLeftBanner} />
-      <Icon.ChevronRight className='btn-right' onClick={handleRightBanner} />
-      <ul className='control-dots'>
-        {state.banner.slice(0, 4).map((item, index) => {
-          return (
-            <li
-              className={`banner-dot d${index + 1} ${
-                state.bannerSelected == index ? `active` : ''
-              }`}
-              key={index}
-              onClick={() => handleClickChangeSlide(index)}
-            ></li>
-          );
-        })}
-      </ul>
-    </div>
+    <Carousel>
+      {state.banner.slice(0, 4).map((item, index) => {
+        return (
+          <Carousel.Item key={index}>
+            <img
+              className='d-block w-100'
+              src={item.image}
+              alt='Slide'
+              height='500'
+            />
+          </Carousel.Item>
+        );
+      })}
+    </Carousel>
   );
 };
 
@@ -122,3 +67,15 @@ export default Banner;
         <li className='banner-dot d3'></li>
         <li className='banner-dot d4'></li>
 */
+
+// {state.banner.slice(0, 4).map(item, index)=>{
+//   return(
+//     <Carousel.Item key={index}>
+//     <img
+//     className="d-block w-100"
+//     src={item.image}
+//     alt="slide"
+//   />
+//     </Carousel.Item>
+//   );
+// }}

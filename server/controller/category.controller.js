@@ -6,7 +6,7 @@ const { populate } = require('../model/Category');
 module.exports = {
   listCategory: async (req, res) => {
     try {
-      const categories = await Category.find();
+      const categories = await Category.find().populate('products');
       res.status(200).json(categories);
     } catch (e) {
       res.status(400).json({ msg: e.message });

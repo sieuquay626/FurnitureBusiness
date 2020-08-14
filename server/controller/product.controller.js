@@ -2,12 +2,13 @@ const Product = require('../model/Product');
 const Comment = require('../model/Comment');
 const Supplier = require('../model/Supplier');
 const Category = require('../model/Category');
+const moment = require('moment');
 
 module.exports = {
   listProduct: async (req, res) => {
     await Product.find()
-      .populate('comments')
-      // .populate('supplier')
+      // .populate('comments')
+      .populate('categories')
       .then((product) => {
         res.status(200).json(product);
       })
@@ -44,29 +45,30 @@ module.exports = {
   addProduct: async (req, res) => {
     await Product.find({ title: req.body.title })
       .then(async (product) => {
-        if (Array.isArray(product) && product.length) {
-          res.status(400).json({ msg: 'Product already exists' });
-        } else {
-          const coverImageName = req.file != null ? req.file.filename : null;
+        if (!product.length) {
+          let coverImage = req.file != null ? req.file.filename : '';
+          let arrCategories = req.body.categories
+            ? req.body.categories.split('-')
+            : [];
 
-          let arrCategories = req.body.categories.split('-');
-
-          const newProduct = new Product({
+          let newProduct = new Product({
             ...req.body,
-            coverImage: req.file.path,
-            supplier: req.body.supplier_id,
+            purchase_price: Number(req.body.purchase_price),
+            price: Number(req.body.price),
+            tax: Number(req.body.tax),
+            discount: Number(req.body.discount),
+            coverImage: coverImage,
             categories: arrCategories,
           });
 
-          for (x of arrCategories) {
-            let category = await Category.findById(x);
-            category.products = [...category.products, newProduct._id];
-            category.save();
-          }
+          if (arrCategories.length) {
+            for (x of arrCategories) {
+              let category = await Category.findById(x);
 
-          const supplier = await Supplier.findById(req.body.supplier_id);
-          supplier.products = [...supplier.products, newProduct._id];
-          await supplier.save();
+              category.products = [...category.products, newProduct._id];
+              category.save();
+            }
+          }
 
           newProduct
             .save()
@@ -74,12 +76,15 @@ module.exports = {
               res.status(200).json(result);
             })
             .catch((err) => {
+              console.log('test');
               res.status(400).json({ msg: err });
             });
+        } else {
+          res.status(400).json({ msg: 'Product already exists' });
         }
       })
       .catch((err) => {
-        res.status(400).json({ msg: 'Product already exists' });
+        res.status(400).json({ msg: err });
       });
   },
   editProduct: async (req, res) => {

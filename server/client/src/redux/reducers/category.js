@@ -1,14 +1,15 @@
 import * as actionTypes from '../actionTypes/category';
 
 const initialState = {
-  category: null,
+  listCategory: [],
 };
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case actionTypes.GET_CATEGORY_SUCCESS: {
       return {
-        category: action.data,
+        ...state,
+        listCategory: action.data,
       };
     }
     default: {

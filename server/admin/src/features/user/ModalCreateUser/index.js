@@ -71,7 +71,7 @@ const ModalCreateUser = () => {
     setData(...data, avatar);
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (e, values) => {
     e.preventDefault();
     const fd = new FormData();
     dispatch(

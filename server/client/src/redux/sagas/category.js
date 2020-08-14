@@ -6,8 +6,6 @@ import { listCategory_api } from '../../api/category';
 function* handleCategory() {
   try {
     const result = yield call(listCategory_api);
-    console.log(result);
-
     yield put(actions.handleCategorySuccess(result.data));
   } catch (error) {
     yield put(actions.handleCategoryError());
