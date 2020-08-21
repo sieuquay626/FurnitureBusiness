@@ -11,6 +11,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"  \"npm run admin\"",
     "superAdmin": "node ./task/createSuperAdminUser.js",
     "suggest": "nodemon  ./services/index.js",
+    "user": "nodemon ./services/User-user-Collaborative-Filtering.js",
+    "item": "nodemon ./services/Item-item-Collaborative-Filtering",
     "debug": "ndb app.js",
     "lint": "eslint chatbox/"
   },
@@ -26,6 +28,7 @@
     "express": "^4.17.1",
     "gravatar": "^1.8.0",
     "helmet": "^3.23.3",
+    "js-recommender": "^1.0.5",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mocha": "^8.0.1",

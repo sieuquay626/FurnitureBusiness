@@ -5,16 +5,17 @@ const Product = require('./Product');
 const RatingSchema = Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'users',
   },
   product: {
     type: Schema.Types.ObjectId,
-    ref: 'Product',
+    ref: 'products',
   },
   value: {
     type: Number,
     required: true,
-    enum: [1, 2, 3, 4, 5],
+    min: 1,
+    max: 5,
   },
   createAt: {
     type: Date,

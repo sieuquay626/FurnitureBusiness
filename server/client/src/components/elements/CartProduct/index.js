@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import { useDispatch } from 'react-redux';
 import * as Icon from 'react-feather';
@@ -15,8 +15,23 @@ const CartProduct = (props) => {
     console.log('ok');
     dispatch(handleAddCart(item));
   };
+  // useEffect(() => {
+  //   let tempvalue = 5;
+  //   if (Array.isArray(item.ratings)) {
+  //     if (item.ratings.length != 0) {
+  //       tempvalue = Math.round(
+  //         item.ratings.reduce((a, b) => {
+  //           return a + b;
+  //         }) / item.ratings.length
+  //       );
+  //     }
+  //   }
+
+  //   setValue(tempvalue);
+  // }, [item]);
+
   return (
-    <Link to={`/collect/${item._id}`}>
+    <Link to={`/collections/${item._id}`}>
       <li className='card-product'>
         <div className='image-product'>
           <div className='image-cover'>
@@ -48,9 +63,7 @@ const CartProduct = (props) => {
                 );
               })}
             </div>
-            <div className='star'>
-              <Rating value={4} />
-            </div>
+            <Rating name='read-only' value={item.avgRating} readOnly />
           </div>
           <div className='title-product'>{item.title}</div>
           <div className='product-price'>
@@ -68,3 +81,11 @@ const CartProduct = (props) => {
 };
 
 export default CartProduct;
+
+/*
+
+ <div className='countUserRating'>
+              {Array.isArray(item.ratings) ? item.rating.length : 0}
+            </div>
+
+*/

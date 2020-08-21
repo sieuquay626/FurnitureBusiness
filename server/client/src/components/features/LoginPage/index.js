@@ -14,20 +14,20 @@ const LoginPage = () => {
   const { isOAuth } = useSelector((state) => state.auth);
   const onFinish = (values) => {
     dispatch(
-      // handleLogin(values, ({ error, message }) => {
-      //   if (error) {
-      //     Notification('error', message);
-      //   }
-      // })
+      //   // handleLogin(values, ({ error, message }) => {
+      //   //   if (error) {
+      //   //     Notification('error', message);
+      //   //   }
+      //   // })
       handleLogin(values)
     );
   };
 
-  // const { from } = location.state || { from: { pathname: '/' } };
+  const { from } = location.state || { from: { pathname: '/' } };
 
-  // if (isLogin) {
-  //   return <Redirect to={from} />;
-  // }
+  if (isOAuth) {
+    return <Redirect to={from} />;
+  }
 
   return (
     <div className='loginWrapper'>

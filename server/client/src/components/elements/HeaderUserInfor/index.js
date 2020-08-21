@@ -2,10 +2,11 @@ import React from 'react';
 import './style.scss';
 import * as Icon from 'react-feather';
 import { Link } from 'react-router-dom';
-const HeaderUserInfor = ({ auth }) => { 
-  return auth ? (
+const HeaderUserInfor = ({ auth }) => {
+  return auth.isOAuth ? (
     <div className='user-infor'>
-      <h1>sadnsadnsad</h1>
+      <div className='username'>{auth.userInfo.username}</div>
+      <img className='avatar' src={auth.userInfo.avatar} alt='No avartar' />
     </div>
   ) : (
     <div className='user-infor'>

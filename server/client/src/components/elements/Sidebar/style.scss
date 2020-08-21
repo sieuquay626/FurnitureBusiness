@@ -9,7 +9,11 @@
     border: 1px solid #eee;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-
+    .global-navigation-title {
+      width: 100%;
+      background-color: #7367f0;
+      height: 50px;
+    }
     .parent-menu {
       padding: 5px 20px;
       margin: 10px 0;

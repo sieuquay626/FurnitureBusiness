@@ -10,7 +10,7 @@ const ContentProduct = () => {
   const products = useSelector((state) => state.product);
   const [listItem, setListItem] = useState([]);
   useEffect(() => {
-    switch (products.currentMovieType) {
+    switch (products.currentProductType) {
       case 'New Arrival':
         setListItem([...products.listProduct]);
         break;
@@ -18,11 +18,11 @@ const ContentProduct = () => {
         setListItem([...products.productByCategory]);
         break;
     }
-  }, [products.currentMovieType]);
+  }, [products.currentProductType]);
   return (
     <div className='content-product'>
       <ProductRecomment />
-      <ListProduct products={listItem} title={products.currentMovieType} />
+      <ListProduct products={listItem} title={products.currentProductType} />
     </div>
   );
 };

@@ -4,27 +4,22 @@ import * as actions from '../actions/login';
 import { login_api } from '../../api/auth';
 // import { parseJwt } from '../../utils/helpers';
 
-function* handleLogin(data) {
-  console.log('vao saga');
-  // const { data, callback } = payload;
+function* handleLogin({ data }) {
+  // console.log(data);
 
   try {
     const result = yield call(login_api, data);
-
     console.log(result);
-    // const { token, role } = result.data;
-
-    // yield localStorage.setItem('token', token);
-    // yield localStorage.setItem('role', role);
-
+    const { token, role } = result.data;
+    yield localStorage.setItem('token', token);
+    yield localStorage.setItem('role', role);
     // callback({ error: false });
-
-    // yield put(actions.handleLoginSuccess(result.data));
+    yield put(actions.handleLoginSuccess(result.data));
   } catch (error) {
     // console.log(error.message);
     // const message = error.response?.data?.message || error.message;
     // callback({ error: true, message });
-    // yield put(actions.handleLoginError());
+    yield put(actions.handleLoginError());
   }
 }
 

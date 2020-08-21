@@ -7,12 +7,14 @@ import { useDispatch } from 'react-redux';
 import { handleProduct } from '../../../redux/actions/product';
 import { handleGetCart } from '../../../redux/actions/cart';
 import ContentProduct from '../../elements/ContentProduct';
+import Footer from '../../layout/footer';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(handleGetCart());
-  }, []);
+    dispatch(handleProduct());
+  });
   return (
     <div className='homepage'>
       <Header />
@@ -21,7 +23,7 @@ const HomePage = () => {
         <Sidebar />
         <ContentProduct />
       </div>
-      <footer>All right is reverser</footer>
+      <Footer />
     </div>
   );
 };

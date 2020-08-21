@@ -46,10 +46,6 @@ const UserSchema = Schema({
   resetTokenExpiration: {
     type: Date,
   },
-  creditCards: {
-    type: Map,
-    of: String,
-  },
   createdAt: {
     type: Date,
     default: Date.now,

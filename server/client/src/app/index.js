@@ -10,7 +10,9 @@ import Dotenv from 'dotenv';
 
 const HomePage = lazy(() => import('../components/features/HomePage'));
 const NotFound = lazy(() => import('../components/features/NotFound'));
-const ProductDetail = lazy(() => import('../components/features/HomePage'));
+const ProductDetail = lazy(() =>
+  import('../components/features/ProductDetail')
+);
 const LoginPage = lazy(() => import('../components/features/LoginPage'));
 const CheckoutPage = lazy(() => import('../components/features/Checkout'));
 
@@ -38,8 +40,7 @@ function App() {
         <Suspense fallback={Loading}>
           <Switch>
             <Route path='/' exact component={HomePage} />
-            <Route path='/collect/:id' exact component={ProductDetail} />
-            <Route path='/collect/:id' exact component={ProductDetail} />
+            <Route path='/collections/:id' exact component={ProductDetail} />
             <Route path='/checkout' exact component={CheckoutPage} />
             <Route path='/login' exact component={LoginPage} />
             <Route path='*' component={NotFound} />

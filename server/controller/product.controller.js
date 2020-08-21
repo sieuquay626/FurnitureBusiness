@@ -3,12 +3,58 @@ const Comment = require('../model/Comment');
 const Supplier = require('../model/Supplier');
 const Category = require('../model/Category');
 const moment = require('moment');
+const Rating = require('../model/Rating');
 
 module.exports = {
+  avgRating: async (req, res) => {
+    let rateCount = 0;
+    let arrItem = [];
+    let avgRating = 0;
+    await Product.find()
+      .then((product) => {
+        product.map(async (item) => {
+          arrItem.push(item);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(arrItem.length);
+    for (let item of arrItem) {
+      await Rating.countDocuments({ product: item._id }, (err, count) => {
+        rateCount = Number(count);
+      });
+      await Product.findOne({ _id: item._id }, 'ratings', (err, product) => {
+        Rating.aggregate(
+          [
+            { $match: { _id: { $in: item.ratings } } },
+            { $group: { _id: item._id, average: { $avg: '$value' } } },
+          ],
+          (err, result) => {
+            avgRating = Number(Math.round(result[0].average));
+          }
+        );
+      });
+      item.rateCount = rateCount;
+      item.avgRating = avgRating;
+      console.log(item);
+      // const newProduct = new Product({
+      //   _id: item._id,
+      //   ...item._doc,
+      //   tax: 5,
+      //   rateCount: rateCount,
+      //   avgRating: avgRating,
+      // });
+      // console.log(newProduct);
+      item.save();
+    }
+    res.status(200).json('Success');
+  },
   listProduct: async (req, res) => {
     await Product.find()
       // .populate('comments')
       .populate('categories')
+      .populate('ratings')
       .then((product) => {
         res.status(200).json(product);
       })

@@ -39,6 +39,12 @@ const ProductSchema = Schema({
       ref: 'categories',
     },
   ],
+  ratings: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'ratings',
+    },
+  ],
 
   // supplier: {
   //   type: Schema.Types.ObjectId,
@@ -52,15 +58,12 @@ const ProductSchema = Schema({
   //   },
   // ],
 
-  // ratings: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Rating',
-  //   },
-  // ],
-  // avgRating: {
-  //   type: Number,
-  // },
+  avgRating: {
+    type: Number,
+  },
+  rateCount: {
+    type: Number,
+  },
   // yearOfRelease: {
   //   type: Number,
   // },
@@ -80,9 +83,9 @@ const ProductSchema = Schema({
   // dimensions: {
   //   type: String,
   // },
-  // description: {
-  //   type: String,
-  // },
+  description: {
+    type: String,
+  },
 
   // amount: {
   //   type: Number,
@@ -95,6 +98,34 @@ const ProductSchema = Schema({
     type: Date,
     default: Date.now,
   },
+});
+
+ProductSchema.pre('save', async (next) => {
+  // let product = this;
+  // await Rating.count({ product: product._id }, function (err, count) {
+  //   console.log(count);
+  //   this.rateCount = Number(count);
+  // });
+  // await Product.findOne({ _id: product._id }, 'ratings', function (
+  //   err,
+  //   product
+  // ) {
+  //   // 2. Filter Comments to just those in product.Comments and average the Rating
+  //   Rating.aggregate(
+  //     [
+  //       { $match: { _id: { $in: product.ratings } } },
+  //       { $group: { _id: product._id, average: { $avg: '$value' } } },
+  //     ],
+  //     function (err, result) {
+  //       this.avgRating = Number(Math.round(result[0].average));
+  //     }
+  //   );
+  // });
+  // console.log(this);
+  // if (0 == 2) {
+  //   console.log('2');
+  //   next();
+  // }
 });
 
 module.exports = model('products', ProductSchema);

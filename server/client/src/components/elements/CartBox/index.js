@@ -14,13 +14,16 @@ const CartBox = ({ showCart }) => {
   const [subTotal, setSubTotal] = useState(0);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  // useEffect(() => {
-  //   let temp = 0;
-  //   for (let item of state.shoppingCart) {
-  //     temp += Number(item.price) * Number(item.amount);
-  //   }
-  //   setSubTotal(temp);
-  // }, [state]);
+  useEffect(() => {
+    let temp = 0;
+    for (let item of cart.listToCartProduct) {
+      temp +=
+        Number(
+          (item.product.price * (100 - item.product.discount) * 0.01).toFixed(2)
+        ) * Number(item.amount);
+    }
+    setSubTotal(temp);
+  }, [cart]);
 
   const handlePlusAmount = (data) => {
     dispatch(handleAddCart(data));
@@ -107,65 +110,3 @@ const CartBox = ({ showCart }) => {
 };
 
 export default CartBox;
-
-/*
-
- <div className={`cart-box ${props.showCart ? 'show' : ''}`}>
-      <div className='header-cart'>
-        <h4>Shopping Cart</h4>
-      </div>
-      <div className='list-cart'>
-        {state.shoppingCart.map((item, index) => {
-          return (
-            <div className='item-cart' key={index}>
-              <div className='view-img'>
-                <img src={item.img} alt='no item' />
-              </div>
-              <div className='infor-item'>
-                <div className='item-name'>{item.title}</div>
-                <div className='variations'>
-                  <span className='item-color'>{item.color}</span>
-                  <span className='item-size'>,{item.size}</span>
-                </div>
-                <div className='item-price'>${item.price}</div>
-                <div className='item-amount'>
-                  <div
-                    className={`amount ${
-                      state.shoppingCart[index].amount == 1 ? 'hidden' : ''
-                    }`}
-                    onClick={() => handleMinusAmount(index)}
-                  >
-                    <Icon.Minus />
-                  </div>
-                  <div className='amount val'>{item.amount}</div>
-                  <div
-                    className='amount'
-                    onClick={() => handlePlusAmount(index)}
-                  >
-                    <Icon.Plus />
-                  </div>
-                </div>
-              </div>
-              <div className='trash'>
-                <Icon.Trash2 onClick={() => handleDeleteCartItem(index)} />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className='sub-total'>
-        <span className='total-title'>SubTotal:</span>
-        <span className='total-price'>${subTotal}</span>
-      </div>
-
-      <div className='header-cart-checkout'>
-        <Link to='cart' className='act btn-viewbag'>
-          <span>View Bag</span>
-        </Link>
-        <Link to='/checkout' className='act btn-checkout'>
-          <span>Checkout</span>
-        </Link>
-      </div>
-    </div>
-
-*/

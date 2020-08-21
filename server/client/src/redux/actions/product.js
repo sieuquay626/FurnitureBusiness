@@ -21,7 +21,6 @@ const handleProductError = () => {
 };
 
 const handleProductByCategory = (data) => {
-  console.log('data', data);
   return {
     type: actionTypes.GET_PRODUCT_BY_CATEGORY,
     data,
@@ -41,6 +40,28 @@ const handleProductByCategoryError = () => {
   };
 };
 
+const handleProductRecomment = (query) => {
+  console.log(query);
+  console.log(1);
+  return {
+    type: actionTypes.GET_PRODUCT_BY_RECOMMENT,
+    query,
+  };
+};
+
+const handleProductRecommentSuccess = (data) => {
+  return {
+    type: actionTypes.GET_PRODUCT_BY_RECOMMENT_SUCCESS,
+    data,
+  };
+};
+
+const handleProductRecommentError = () => {
+  return {
+    type: actionTypes.GET_PRODUCT_BY_RECOMMENT_ERROR,
+  };
+};
+
 export {
   handleProduct,
   handleProductSuccess,
@@ -48,4 +69,7 @@ export {
   handleProductByCategory,
   handleProductByCategorySuccess,
   handleProductByCategoryError,
+  handleProductRecomment,
+  handleProductRecommentSuccess,
+  handleProductRecommentError,
 };

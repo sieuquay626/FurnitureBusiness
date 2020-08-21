@@ -9,11 +9,11 @@ import CartBox from '../../elements/CartBox';
 import SearchBox from '../../elements/SearchBox';
 import HeaderUserInfor from '../../elements/HeaderUserInfor';
 import { handleProduct } from '../../../redux/actions/product';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = (props) => {
   const dispatch = useDispatch();
-  let auth = false;
+  const auth = useSelector((state) => state.auth);
   const [state, setState] = useState({
     showCart: false,
   });

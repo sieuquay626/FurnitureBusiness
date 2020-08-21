@@ -3413,6 +3413,11 @@ iterate-value@^1.0.0:
     es-get-iterator "^1.0.2"
     iterate-iterator "^1.0.1"
 
+js-recommender@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/js-recommender/-/js-recommender-1.0.5.tgz#c4a2ed10fce8a276d16b628af0e5d2a372c37697"
+  integrity sha1-xKLtEPzoonbRa2KK8OXSo3LDdpc=
+
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"

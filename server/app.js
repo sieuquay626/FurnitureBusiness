@@ -39,6 +39,7 @@ app.use('/api/v1/supplier', SupplierRoutes);
 app.use('/api/v1/category', CategoryRoutes);
 app.use('/api/v1/comment', CommentRoutes);
 app.use('/api/v1/rating', RatignRoutes);
+
 // routes
 
 app.get('/', (req, res) => {

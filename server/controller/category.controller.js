@@ -1,7 +1,6 @@
 const config = require('../config/config');
 const Category = require('../model/Category');
 const Product = require('../model/Product');
-const { populate } = require('../model/Category');
 
 module.exports = {
   listCategory: async (req, res) => {

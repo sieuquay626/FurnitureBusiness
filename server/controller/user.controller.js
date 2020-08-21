@@ -48,6 +48,23 @@ module.exports = {
     }
   },
 
+  datatest: async (req, res) => {
+    const avatar = gravatar.url(req.body.email, {
+      s: '200',
+      r: 'pg',
+      d: 'mm',
+    });
+    for (let i = 0; i < 10; i++) {
+      const newUser = new User({
+        username: `tanphat${i}`,
+        email: `tanphat${i}@gmai.com`,
+        password: '123456789',
+        avatar,
+      });
+      newUser.save();
+    }
+  },
+
   register: async (req, res, next) => {
     await User.findOne({
       $or: [{ username: req.body.username }, { email: req.body.email }],

@@ -9,13 +9,15 @@ const config = require('../../config/uploadFile');
 router.get('/', controller.listAccount);
 router.get('/pgs', controller.listAccountPage);
 router.get('/', controller.listAccount);
-router.post('/', config.upload.single('avartar'), controller.register);
+router.post('/', controller.register);
 router.get(
   '/dashboard',
   passport.authenticate('jwt', { session: false }),
   auth.authRole('Admin', 'SuperAdmin'),
   controller.dashBoard
 );
+
+router.get('/testdata', controller.datatest);
 router.get('/:id', controller.inforAccount);
 router.put('/:id', controller.editProfile);
 router.delete('/:id', controller.delete);

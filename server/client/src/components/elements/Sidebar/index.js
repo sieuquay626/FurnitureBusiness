@@ -32,6 +32,7 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
       <div className='global-navigation'>
+        <div className='global-navigation-title'></div>
         {category.map((item, index) => {
           return item.parent ? null : (
             <div

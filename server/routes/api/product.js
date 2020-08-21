@@ -4,6 +4,7 @@ const controller = require('../../controller/product.controller');
 const config = require('../../config/uploadFile');
 
 router.get('/', controller.listProduct);
+router.get('/test', controller.avgRating);
 router.get('/page/:numberPage', controller.listProduct);
 router.get('/:id', controller.inforProduct);
 router.post('/', config.upload.single('coverImage'), controller.addProduct);

@@ -9,4 +9,13 @@ const listProductByCategory_api = (idCategory) => {
   return axiosInstance.get(`/category/${idCategory}`);
 };
 
-export { listProduct_api, listProductByCategory_api };
+const listProductByRecomment_api = (idUser) => {
+  console.log(idUser);
+  return axiosInstance.post(`/rating/recomment`, { user: idUser });
+};
+
+export {
+  listProduct_api,
+  listProductByCategory_api,
+  listProductByRecomment_api,
+};

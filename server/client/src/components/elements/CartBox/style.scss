@@ -2,10 +2,10 @@
   opacity: 0;
   overflow: hidden;
   position: absolute;
-  width: 300px;
+  width: 310px;
   height: auto;
-  top: 65px;
-  right: 45px;
+  top: 70px;
+  right: 70px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);
@@ -17,7 +17,7 @@
     align-items: center;
     color: black;
     font-weight: 600;
-    border-bottom: 2px solid #7367f0;
+    border-bottom: 1px solid #dedede;
   }
   .list-cart {
     overflow-y: scroll;
@@ -133,7 +133,7 @@
     font-size: 22px;
     font-weight: bold;
     padding-left: 10px;
-    border-top: 2px solid #7367f0;
+    border-top: 1px solid #dedede;
     .total-price {
       padding-left: 5px;
     }

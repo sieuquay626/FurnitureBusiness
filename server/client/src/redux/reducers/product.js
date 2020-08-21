@@ -1,7 +1,7 @@
 import * as actionTypes from '../actionTypes/product';
 
 const initialState = {
-  currentMovieType: 'New Arrival',
+  currentProductType: 'New Arrival',
   listProduct: [],
   query: {
     page: '1',
@@ -17,7 +17,7 @@ export default (state = initialState, action = {}) => {
     case actionTypes.GET_PRODUCT_SUCCESS: {
       return {
         ...state,
-        currentMovieType: 'New Arrival',
+        currentProductType: 'New Arrival',
         listProduct: action.data,
         query: action.query,
       };
@@ -25,9 +25,16 @@ export default (state = initialState, action = {}) => {
     case actionTypes.GET_PRODUCT_BY_CATEGORY: {
       return {
         ...state,
-        currentMovieType: action.data.title,
+        currentProductType: action.data.title,
         productByCategory: action.data.products,
         query: action.query,
+      };
+    }
+    case actionTypes.GET_PRODUCT_BY_RECOMMENT_SUCCESS: {
+      return {
+        ...state,
+        query: action.query,
+        productByRecomment: action.data,
       };
     }
     default: {
